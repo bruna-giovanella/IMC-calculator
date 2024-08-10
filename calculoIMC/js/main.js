@@ -1,11 +1,12 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('.form')
+document.addEventListener('DOMContentLoaded', () => { //espera a páina estar carregada para começar o código
+
+    const form = document.querySelector('.form') //seleciono oq eu quero mexer do HTML
     const resultado = document.querySelector('.resultado')
 
     function recebeEventoForm(evento) {
-        evento.preventDefault();
+        evento.preventDefault(); //evita o comportamento padrão, que em caso de formulario seria recarregar a pagina e perder as inforções (pq teria q lidar com um servidor)
 
-        const peso = parseFloat(form.querySelector('#peso').value)
+        const peso = parseFloat(form.querySelector('#peso').value) //.value diz que é o valor informado pelo usuário no input
         const altura = parseFloat(form.querySelector('#altura').value)
 
         if (isNaN(peso) || isNaN(altura) || altura <= 0 || altura >= 3.5 || peso <= 0 || peso >= 600    ) {
@@ -39,4 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     form.addEventListener('submit', recebeEventoForm)
+    //do form. adicionar um ouvidor de evento
+    //o evento ouvido ser o submit, que terá como consequencia rodar a função recebeEventoForm
 })
